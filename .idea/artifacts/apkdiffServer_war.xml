@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="apkdiffServer:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="apkdiff.war">
+      <element id="artifact" artifact-name="apkdiffServer:war exploded" />
+    </root>
+  </artifact>
+</component>

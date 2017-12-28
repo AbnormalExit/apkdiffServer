@@ -6,8 +6,8 @@ package servers;
 public class DiffApkUtils {
 
     static {
-        System.loadLibrary("apkdiff");
+        System.loadLibrary("NdkDiffDill");
     }
 
-    public static native void diff(String oldApkPath, String newApkPath, int fileNums);
+    public static native void diff(String oldApkPath, String newApkPath,String patchPath);
 }

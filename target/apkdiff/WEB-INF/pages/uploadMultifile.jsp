@@ -61,7 +61,7 @@
         <br>
         <input type="file" name="newApk" class="myInput"/>
         <br>
-        <button type="submit" id="sbutton">生成差异文件</button>
+        <button type="submit" id="sbutton">上传文件</button>
     </form>
 
 </div>

@@ -2,3 +2,5 @@
 .gitignore
 target/apkdiff/WEB-INF/classes/servlet/
 target/generated-sources/
+/.idea
+/target

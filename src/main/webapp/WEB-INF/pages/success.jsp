@@ -4,12 +4,28 @@
 <html>
 <head>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/main.css" type="text/css" />
+    <style type="text/css">
+        .myform {
+            width: 400px;
+            height: 400px;
+            margin: 0px;
+        }
+        #sbutton {
+            position: relative;
+            margin-top: 10px;
+            width: 280px;
+            height: 40px;
+        }
+    </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>上传文件成功 页面</title>
 </head>
 <body>
 <div align="center">
 <h1>Success</h1>
+    <form method="get" action="/getpatch/doDiff" enctype="multipart/form-data" class="myform">
+        <button type="submit" id="sbutton">拆分文件</button>
+    </form>
 </div>
 </body>
 </html>

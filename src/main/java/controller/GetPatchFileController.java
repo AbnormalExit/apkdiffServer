@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import servers.DiffApkUtils;
 import utils.Contacts;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +21,7 @@ import java.util.Iterator;
  */
 
 //http://localhost:8080/getpatch/uploadPage
+//http://192.168.1.6:8080/getpatch/uploadPage
 @Controller
 @RequestMapping(value = "/getpatch")
 public class GetPatchFileController {
@@ -47,7 +49,7 @@ public class GetPatchFileController {
                 log.debug("Process file: {}", file.getOriginalFilename());
                 file.getName();
                 System.out.println("文件名称：" + fileName);
-                FileUtils.copyInputStreamToFile(file.getInputStream(), new File("D:\\temp\\file\\",
+                FileUtils.copyInputStreamToFile(file.getInputStream(), new File("D:\\bsdiff\\",
                         file.getOriginalFilename()));
             }
 
@@ -55,6 +57,15 @@ public class GetPatchFileController {
         return "success";
     }
 
+    /**
+     * 拆分文件
+     * @return
+     */
+    @RequestMapping(value = "/doDiff",method = RequestMethod.GET)
+    public String bsdiff(){
+        DiffApkUtils.diff(Contacts.OLD_FILE,Contacts.NEW_FILE,Contacts.PATCH_FILE);
+        return null;
+    }
     /**
      * 文件下载
      *
@@ -67,7 +78,7 @@ public class GetPatchFileController {
     public String downloadFile(HttpServletRequest request, HttpServletResponse response) {
 
         String patchPath = Contacts.PATCH_FILE;
-        String fileName = "NOCARD.apk";
+        String fileName = "apk.patch";
         File file = new File(patchPath);
         if (file.exists()) {
             response.setContentType("application/force-download");// 设置强制下载不打开

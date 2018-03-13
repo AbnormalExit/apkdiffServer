@@ -18,14 +18,15 @@ import java.util.Iterator;
 
 /**
  * Created by sxshi on 2017-12-27.
+ * 此文件主要用于apk 拆分文件下载和上传
  */
 
-//http://localhost:8080/getpatch/uploadPage
-//http://192.168.1.6:8080/getpatch/uploadPage
+//http://localhost:8080/patchController/uploadPage
+//http://192.168.1.6:8080/patchController/uploadPage
 @Controller
-@RequestMapping(value = "/getpatch")
-public class GetPatchFileController {
-    private static Logger log = LoggerFactory.getLogger(GetPatchFileController.class);
+@RequestMapping(value = "/patchController")
+public class PatchFileController {
+    private static Logger log = LoggerFactory.getLogger(PatchFileController.class);
 
     @RequestMapping(value = "/uploadPage", method = RequestMethod.GET)
     public String showUploadPage() {
